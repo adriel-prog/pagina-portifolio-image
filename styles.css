@@ -1,0 +1,89 @@
+body {
+    font-family: 'montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  header {
+    position: relative;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 10px; /* Ajuste conforme necessário para a posição vertical */
+    left: 10px; /* Ajuste conforme necessário para a posição horizontal */
+    max-width: 100px; /* Ajuste o tamanho conforme necessário */
+  }
+  header {
+    background-color: #6242f2;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  /* Adaptação para dispositivos móveis */
+  @media only screen and (max-width: 600px) {
+    header, section, footer {
+      padding: 10px;
+    }
+  }
+  
+  /* Estilo da galeria */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gallery-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Adiciona a sombra padrão aqui */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .gallery-item img:hover {
+    /* Ajusta a sombra no hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(0, 0, 0, 0.3);
+  
+    /* Remove a transformação de escala padrão */
+    transform: none;
+  
+    /* Adiciona uma transformação de escala de 1.2 quando o mouse passa */
+    &:hover {
+      transform: scale(1.2);
+    }
+  
+    /* Adiciona uma transformação de paralaxe quando o mouse passa */
+    &:hover {
+      transform: scale(1.2) translateX(10px) translateY(10px);
+    }
+  }
+  
+  .gallery-item img.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  
